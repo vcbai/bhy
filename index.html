@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <body oncontextmenu="return false" onselectstart="return false" ondragstart="return false" onbeforecopy="return false" oncopy=document.selection.empty() onselect=document.selection.empty()>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>百花园永久发布页|全国同城真实见面约会|bhy.me</title>
+	<meta name="keywords" content="百花园,老师在线,上课开课,广东洗浴,洗浴按摩,bhy.me">
+	<meta name="description" content="百花园,老师在线,上课开课,广东洗浴,洗浴按摩,bhy.me">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.loli.net/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap">
+    <style>
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+            background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
+            color: #fff;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 1rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            transition: all 0.5s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+        }
+        .service-icon {
+            position: relative;
+            width: 120px;
+            height: 120px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+            box-shadow: 0 0 30px rgba(255, 59, 48, 0.5);
+        }
+        .service-icon::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 2px solid rgba(255, 59, 48, 0.8);
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% {
+                transform: scale(0.95);
+                opacity: 0.8;
+            }
+            70% {
+                transform: scale(1.1);
+                opacity: 0;
+            }
+            100% {
+                transform: scale(0.95);
+                opacity: 0;
+            }
+        }
+        .slide-up {
+            animation: slideUp 0.8s ease forwards;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        @keyframes slideUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            pointer-events: none;
+            background: linear-gradient(135deg, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0.1) 100%);
+        }
+        .shake {
+            animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) both;
+        }
+        @keyframes shake {
+            10%, 90% {transform: translateX(-1px);}
+            20%, 80% {transform: translateX(2px);}
+            30%, 50%, 70% {transform: translateX(-4px);}
+            40%, 60% {transform: translateX(4px);}
+        }
+        .animate-pulse {
+            animation: pulse-fade 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        @keyframes pulse-fade {
+            0%, 100% {opacity: 1;}
+            50% {opacity: .5;}
+        }
+        .badge {
+            position: relative;
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            background: rgba(255, 59, 48, 0.2);
+            border: 1px solid rgba(255, 59, 48, 0.5);
+            color: #ff3b30;
+        }
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 6px;
+            height: calc(100% - 12px);
+            width: 2px;
+            background: rgba(156, 163, 175, 0.5);
+        }
+        .timeline-item {
+            position: relative;
+            padding-bottom: 1.5rem;
+        }
+        .timeline-item:last-child {
+            padding-bottom: 0;
+        }
+        .timeline-dot {
+            position: absolute;
+            left: -2rem;
+            top: 0.25rem;
+            width: 1rem;
+            height: 1rem;
+            border-radius: 50%;
+            background: #4f46e5;
+            border: 2px solid #fff;
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.3);
+        }
+        .service-status-badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            background: rgba(255, 59, 48, 0.2);
+            border: 1px solid rgba(255, 59, 48, 0.5);
+            color: #ff3b30;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+        }
+        .status-pulse {
+            width: 10px;
+            height: 10px;
+            background-color: #ff3b30;
+            border-radius: 50%;
+            margin-right: 0.5rem;
+            position: relative;
+        }
+        .status-pulse::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            border-radius: 50%;
+            background-color: rgba(255, 59, 48, 0.5);
+            animation: status-ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite;
+        }
+        @keyframes status-ping {
+            75%, 100% {
+                transform: scale(2);
+                opacity: 0;
+            }
+        }
+        .service-feature {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+        .feature-icon {
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 50%;
+            background: rgba(79, 70, 229, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            flex-shrink: 0;
+            color: #818cf8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mx-auto px-4 py-8">
+        <div class="card p-6 md:p-8 slide-up" style="animation-delay: 0.1s;">
+            <div class="text-center">
+                <h1 class="text-3xl md:text-4xl font-bold mb-2 bg-gradient-to-r from-red-400 to-pink-600 bg-clip-text text-transparent">百花园永久发布页</h1>
+                <a class="text-gray-300 mb-6">感谢您一直以来的支持与信任</a><br>
+				<p class="text-gray-300 mb-6">请 Ctrl+D 收藏本页回家不迷路</p>
+                <a class="service-status-badge" href="/tu/bhy.jpg"" target="_blank">下载百花园APP</a>
+                
+                <div class="bg-gray-800 bg-opacity-50 rounded-lg p-5 mb-6 max-w-2xl mx-auto">
+                    <h2 class="text-xl font-bold mb-3 text-yellow-300">
+                        <i class="fas fa-exclamation-triangle mr-2"></i>重要通知
+                    </h2>
+					<b class="text-gray-300 mb-6 sizes">客服海鸥ID：594527530<br>客服与你号：bhy.me</b><br>
+                    <b class="text-gray-300 mb-4"> 各位司机 <span class="font-semibold text-red-400">请不要使用腾讯系+百度系软件</span> 访问本页面。</b><br>
+					<b>个别地区网络故障无法正常访问网站的，更换网络或数据即可正常访问。</b><br>
+                    <p class="text-gray-300">
+                        下载 <a style="color: #e85051;" href="/u/via.apk" target="_blank">Via浏览器</a> 更小更好用的浏览器。
+                    </p>
+                </div>
+                <div class="mx-auto">
+                    <h3 class="font-bold text-xl mb-4 text-center text-purple-300"><a href="//yx.bhy366.shop" target="_blank">最新地址Ⅰ</a></h3>
+					<h3 class="font-bold text-xl mb-4 text-center text-purple-300"><a href="//gd.bhy366.shop" target="_blank">最新地址Ⅱ</a></h3>
+					<h3 class="font-bold text-xl mb-4 text-center text-purple-300"><a href="//bhy.me" target="_blank">永久访问地址</a></h3>
+					<h3 class="font-bold text-xl mb-4 text-center text-purple-300"><a href="//bhy.github.io" target="_blank">永久备用导航地址</a></h3>
+					   
+                </div>
+            </div>
+        </div>
+        <div class="card p-6 md:p-8 mt-6 slide-up" style="animation-delay: 0.3s;">
+            <h2 class="text-xl font-bold mb-4 flex items-center">
+                <i class="fas fa-question-circle mr-2 text-yellow-400"></i>
+                常见问题
+            </h2>
+            <div class="space-y-4">
+                <div class="p-4 bg-gray-800 bg-opacity-50 rounded-lg">
+                    <h3 class="font-medium text-yellow-300 mb-2">地址无法访问？</h3>
+                    <p class="text-gray-300">
+					1.请切换网络 WIFI/4G/5G 或者使用科学上网工具(vp恩)；<br>
+					2.浏览器访问请输入完整地址并核对无错；<br>
+					3.请用via、Chrome、edge、Firefox、夸克等浏览器访问；<br>
+					4.请不要使用腾讯系、百度系的任何软件进行访问本页面。</p>
+                </div>
+            </div>
+        </div>
+        <footer class="mt-8 text-center text-gray-400 text-sm slide-up" style="animation-delay: 0.6s;">
+            <div class="flex justify-center space-x-4 mb-4">
+                <a href="#" class="hover:text-white transition-colors" title="Telegram">
+                    <i class="fab fa-telegram text-xl"></i>
+                </a>
+                <a href="#" class="hover:text-white transition-colors" title="邮箱">
+                    <i class="fas fa-envelope text-xl"></i>
+                </a>
+            </div>
+            <p>©2020-2026 全国同城约会服务: <a href="https://bhy.me" class="text-blue-400 hover:underline">百花园</a></p>
+        </footer>
+    </div>
+    <script>
+        // 粒子效果
+        function createParticles() {
+            const container = document.body;
+            const particleCount = 50;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const size = Math.random() * 5 + 1;
+                const particle = document.createElement('div');
+                
+                particle.classList.add('particle');
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                particle.style.opacity = Math.random() * 0.5 + 0.1;
+                
+                // 随机位置
+                particle.style.left = `${Math.random() * 100}vw`;
+                particle.style.top = `${Math.random() * 100}vh`;
+                
+                // 添加动画
+                particle.style.animation = `moveParticle ${Math.random() * 60 + 30}s linear infinite`;
+                
+                // 随机漂浮动画
+                const keyframes = `
+                    @keyframes moveParticle {
+                        0% {
+                            transform: translate(0, 0);
+                        }
+                        25% {
+                            transform: translate(${Math.random() * 100 - 50}px, ${Math.random() * 100 - 50}px);
+                        }
+                        50% {
+                            transform: translate(${Math.random() * 100 - 50}px, ${Math.random() * 100 - 50}px);
+                        }
+                        75% {
+                            transform: translate(${Math.random() * 100 - 50}px, ${Math.random() * 100 - 50}px);
+                        }
+                        100% {
+                            transform: translate(0, 0);
+                        }
+                    }
+                `;
+                
+                const styleSheet = document.createElement('style');
+                styleSheet.textContent = keyframes;
+                document.head.appendChild(styleSheet);
+                
+                container.appendChild(particle);
+            }
+        }
+        
+        // 创建粒子
+        window.addEventListener('load', () => {
+            createParticles();
+            
+            // 添加滑动动画
+            const elements = document.querySelectorAll('.slide-up');
+            elements.forEach(element => {
+                element.style.animationPlayState = 'running';
+            });
+        });
+    </script>
+</body>
+</html>
